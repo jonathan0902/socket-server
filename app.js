@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
+
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+
+io.origins(['https://socket-client.jhellberg.me:443']);
 
 io.on('connection', function (socket) {
     console.info("User connected");
@@ -12,4 +15,4 @@ io.on('connection', function (socket) {
     });
 });
 
-server.listen(3000);
+server.listen(8300);
