@@ -13,9 +13,11 @@ io.on('connection', function (socket) {
     console.info("User connected");
 
     socket.on('chat message', function (message) {
-        console.log("Test")
-        console.log(message)
         io.emit('chat message', message);
+    });
+
+    socket.on('users', function (message) {
+        io.emit('users', this.users);
     });
 });
 
