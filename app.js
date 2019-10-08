@@ -20,6 +20,11 @@ io.on('connection', function (socket) {
         io.emit('users', userz);
       });
 
+    socket.on('disconnect', () => {
+        delete userz[socket.id];
+        io.emit('users', userz);
+    });
+
     socket.on('chat message', function (message) {
         io.emit('chat message', message);
     });
