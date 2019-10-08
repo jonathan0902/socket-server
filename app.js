@@ -7,7 +7,7 @@ app.use(cors());
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-io.origins(['https://jhellberg.me/chat:443']);
+io.origins(['https://jhellberg.me/chat']);
 
 io.on('connection', function (socket) {
     console.info("User connected");
