@@ -16,7 +16,7 @@ io.on('connection', function (socket) {
         io.emit('chat message', message);
     });
 
-    io.emit('chat message', "User" + this.users + "just connected");
+    io.emit('test', "User" + this.users + "just connected");
 });
 
 server.listen(8300);
