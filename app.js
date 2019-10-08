@@ -12,11 +12,13 @@ io.origins(['https://jhellberg.me:443']);
 io.on('connection', function (socket) {
     console.info("User connected");
 
+    let user = "User" + this.users + "just connected";
+
+    io.emit(user);
+
     socket.on('chat message', function (message) {
         io.emit('chat message', message);
     });
-
-    io.emit('test', "User" + this.users + "just connected");
 });
 
 server.listen(8300);
