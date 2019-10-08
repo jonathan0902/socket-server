@@ -16,7 +16,7 @@ io.on('connection', function (socket) {
     console.info("User connected");
 
     socket.on('joined', function (message) {
-        io.emit('joined', "Hello");
+        io.emit('joined', message);
     });
 
     socket.on('connected', (user) => {
