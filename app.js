@@ -15,7 +15,9 @@ io.origins(['https://jhellberg.me:443']);
 io.on('connection', function (socket) {
     console.info("User connected");
 
-    io.emit('chat message', 'Hello!');
+    socket.on('joined', function (message) {
+        io.emit('joined', "Hello");
+    });
 
     socket.on('connected', (user) => {
         userz[socket.id] = user;
